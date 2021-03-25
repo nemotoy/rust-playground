@@ -11,7 +11,7 @@ struct Opts {
     #[clap(short, long)]
     verbose: bool,
 
-    #[clap(name= "FILE")]
+    #[clap(name = "FILE")]
     formula_file: Option<String>,
 }
 
