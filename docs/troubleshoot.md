@@ -48,3 +48,14 @@ git-fetch-with-cli = true
 - [Configuration - The Cargo Book](https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli)
 - [failed to authenticate when downloading repository · Issue #3381 · rust-lang/cargo](https://github.com/rust-lang/cargo/issues/3381)
 - [cargoでfailed to authenticateになった時の対処法 - Qiita](https://qiita.com/ryo-yamaoka/items/c9d7c9127540e9eadfbb)
+
+## clap v3.0.0-beta.1で実行エラーになる
+
+```sh
+    Finished dev [unoptimized + debuginfo] target(s) in 0.04s
+     Running `target/debug/samplecli -h`
+thread 'main' panicked at 'Argument names must be unique, but '' is in use by more than one argument or group', xxx
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+```
+
+[Example code of README.md using builder pattern results in panic · Issue #1965 · clap-rs/clap](https://github.com/clap-rs/clap/issues/1965)より、beta.2にあげて対応。

@@ -8,4 +8,4 @@ edition = "2018"
 
 [dependencies]
 # https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#comparison-requirements
-clap = "=3.0.0-beta.1"
+clap = "=3.0.0-beta.2"
