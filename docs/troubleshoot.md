@@ -4,6 +4,8 @@
 
 リポジトリの root に *Cargo.toml* を使いワークスペースを作成し、 *members* に各プロジェクト名を指定する。(※ あくまでテスト用プロジェクト)
 
+追記: ビルド時にルートのCargoファイルが更新されるので実行ができなかった。とりあえずこのリポジトリでは1プロジェクトで進める。
+
 ### ref
 
 - [Cargoのワークスペース - The Rust Programming Language 日本語版](https://doc.rust-jp.rs/book-ja/ch14-03-cargo-workspaces.html)
