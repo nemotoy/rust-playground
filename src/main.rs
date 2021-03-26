@@ -3,6 +3,7 @@ use anyhow::{bail, ensure, Context, Result};
 use clap::Clap;
 use std::fs::File;
 use std::io::{stdin, BufRead, BufReader};
+use std::path::PathBuf;
 
 
 struct RpnCalculator(bool);
@@ -62,7 +63,7 @@ struct Opts {
     verbose: bool,
 
     #[clap(name = "FILE")]
-    formula_file: Option<String>,
+    formula_file: Option<PathBuf>,
 }
 
 fn main() {
