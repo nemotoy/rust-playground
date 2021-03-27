@@ -9,7 +9,7 @@ async fn index() -> Result<HttpResponse, actix_web::Error> {
 #[actix_rt::main]
 async fn main() -> Result<(), actix_web::Error> {
     HttpServer::new(move || App::new().service(index))
-        .bind("0.0.0.0:8080")?
+        .bind("127.0.0.1:8080")?
         .run()
         .await?;
     Ok(())
