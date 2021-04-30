@@ -5,7 +5,6 @@ use std::fs::File;
 use std::io::{stdin, BufRead, BufReader};
 use std::path::PathBuf;
 
-
 struct RpnCalculator(bool);
 
 impl RpnCalculator {
@@ -81,7 +80,7 @@ fn main() {
 }
 
 /// print each line from a reader.
-fn run<R: BufRead>(reader: R, verbose: bool) -> Result<()>{
+fn run<R: BufRead>(reader: R, verbose: bool) -> Result<()> {
     let calc = RpnCalculator::new(verbose);
 
     for line in reader.lines() {
