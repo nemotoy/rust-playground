@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 fn main() {
     // 空のベクタ
     // let v: Vec<i32> = Vec::new();
@@ -20,12 +22,12 @@ fn main() {
     println!("value of index first {:?}", first);
 
     for i in &mut v {
-        *i *=2;
+        *i *= 2;
     }
 
     println!("twice collection {:?}", v);
 
-    // === Strings === 
+    // === Strings ===
 
     // s1とs2は等価
     // let data = "initial contents";
@@ -49,4 +51,24 @@ fn main() {
     // let h = s4[0];
     println!("strings: {}", &s4[0..1]);
 
+    // === hash-maps ===
+
+    let mut scores = HashMap::new();
+    scores.insert(String::from("Blue"), 10);
+    scores.insert(String::from("Yellow"), 50);
+
+    println!("hash-maps: {:?}", scores);
+
+    let teams = vec![String::from("Blue"), String::from("Yellow")];
+    let initial_scores = vec![10, 50];
+
+    let scores: HashMap<_, _> = teams.iter().zip(initial_scores.iter()).collect();
+
+    println!("hash-maps: {:?}", scores);
+
+    println!("hash-maps.score: {:?}", scores.get(&String::from("Blue")));
+
+    for (key, value) in &scores {
+        println!("{}: {}", key, value);
+    }
 }
