@@ -24,4 +24,29 @@ fn main() {
     }
 
     println!("twice collection {:?}", v);
+
+    // === Strings === 
+
+    // s1とs2は等価
+    // let data = "initial contents";
+    // let s1 = data.to_string();
+    // let s2 = String::from("initial contents");
+
+    let mut s = String::from("foo");
+    s.push_str("bar");
+
+    println!("strings: {}", s);
+
+    let s1 = String::from("tic");
+    let s2 = String::from("tac");
+    let s3 = String::from("toe");
+
+    // println!("strings: {}", s1 + "-" + &s2 + "-" + &s3);
+    println!("strings: {}", format!("{}-{}-{}", s1, s2, s3)); // 変数の所有権を奪わない
+
+    // 添え字記法でのアクセス不可
+    let s4 = String::from("hello");
+    // let h = s4[0];
+    println!("strings: {}", &s4[0..1]);
+
 }
