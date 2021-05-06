@@ -1,4 +1,5 @@
-fn largest<T>(list: &[T]) -> T {
+// PartialOrd, Copyを実装する型のみ許可
+fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
     let mut largest = list[0];
 
     for &item in list.iter() {
@@ -20,6 +21,6 @@ fn main() {
     println!("The largest number is {}", result);
 
     let char_list = vec!['y', 'm', 'a', 'q'];
-    let result = largest_char(&char_list);
+    let result = largest(&char_list);
     println!("The largest char is {}", result);
 }
