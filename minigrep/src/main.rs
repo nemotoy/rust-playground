@@ -3,7 +3,7 @@ use std::{env, fs::File, io::Read};
 fn main() {
     let args: Vec<String> = env::args().collect();
 
-    let config = parse_config(&args);
+    let config = Config::new(&args);
 
     println!("Searching for {}", config.query);
     println!("In file {}", config.filename);
@@ -22,10 +22,12 @@ struct Config {
     filename: String,
 }
 
-fn parse_config(args: &[String]) -> Config {
+impl Config {
+    fn new(args: &[String]) -> Config {
     // ライフタイム管理とメモリ・時間消費のトレードオフ
     let query = args[1].clone();
     let filename = args[2].clone();
 
     Config {query, filename}
+    }
 }
