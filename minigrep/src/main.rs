@@ -24,10 +24,13 @@ struct Config {
 
 impl Config {
     fn new(args: &[String]) -> Config {
-    // ライフタイム管理とメモリ・時間消費のトレードオフ
-    let query = args[1].clone();
-    let filename = args[2].clone();
+        if args.len() < 3 {
+            panic!("not enough arguments");
+        }
+        // ライフタイム管理とメモリ・時間消費のトレードオフ
+        let query = args[1].clone();
+        let filename = args[2].clone();
 
-    Config {query, filename}
+        Config { query, filename }
     }
 }
