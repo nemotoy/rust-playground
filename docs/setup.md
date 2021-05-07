@@ -34,3 +34,4 @@ $ rust-analyzer --version
 - [rust-analyzer](https://rust-analyzer.github.io/)
 - [Rust AnalyzerによってIDEフレンドリなコンパイラを目指すRust](https://www.infoq.com/jp/news/2020/02/rust-analyser-ide-support/)
 - [RLS vs rust-analyzer : rust](https://www.reddit.com/r/rust/comments/d59c41/rls_vs_rustanalyzer/)
+- [rust-analyzer#configuration](https://rust-analyzer.github.io/manual.html#configuration)
