@@ -1,8 +1,9 @@
-use std::{error::Error, fs::File, io::Read};
+use std::{error::Error, fs::File, io::Read, env};
 
 pub struct Config {
     pub query: String,
     pub filename: String,
+    pub case_sensitive: bool,
 }
 
 impl Config {
@@ -13,8 +14,9 @@ impl Config {
         // ライフタイム管理とメモリ・時間消費のトレードオフ
         let query = args[1].clone();
         let filename = args[2].clone();
+        let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
 
-        return Ok(Config { query, filename });
+        return Ok(Config { query, filename, case_sensitive });
     }
 }
 
@@ -24,7 +26,13 @@ pub fn run(config: Config) -> Result<(), Box<Error>> {
     let mut contents = String::new();
     f.read_to_string(&mut contents)?;
 
-    for line in search(&config.query, &contents) {
+    let results = if config.case_sensitive {
+        search(&config.query, &contents) 
+    } else {
+        search_case_insensitive(&config.query, &contents)
+    };
+
+    for line in results {
         println!("{}", line);
     }
 
