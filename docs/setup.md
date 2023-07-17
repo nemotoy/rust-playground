@@ -9,8 +9,9 @@ Editor: VSCode
 # install tool chain
 $ brew install rustup
 $ rustup-init
+$ source "$HOME/.cargo/env"
 $ cargo version
-cargo 1.50.0 
+cargo 1.71.0
 
 # install lsp
 $ brew install rust-analyzer
