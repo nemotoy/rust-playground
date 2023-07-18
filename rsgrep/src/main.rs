@@ -1,15 +1,26 @@
-use std::{fs::read_to_string, env::args};
+use std::{fs::read_to_string};
 
-fn run_cat(path: String) {
+fn grep(content: String, pattern: String) {
+    for line in content.lines() {
+        if line.contains(pattern.as_str()) {
+            println!("{}", line);
+        }
+    }
+}
+
+fn run(path: String, pattern: String) {
     match read_to_string(path) {
-        Ok(content) => print!("{}", content),
+        Ok(content) => grep(content, pattern),
         Err(reason) => println!("{}", reason)
     }
 }
 
 fn main() {
-    match args().nth(1) {
-        Some(path) => run_cat(path),
-        None => println!("No path"),
+    let pattern = std::env::args().nth(1);
+    let path = std::env::args().nth(2);
+
+    match (pattern, path) {
+        (Some(pattern), Some(path)) => run(path, pattern),
+        _ => println!("path or pattern is not specified"),
     }
 }
